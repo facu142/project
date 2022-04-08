@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Project = sequelize.define('Project', {
-    id:{ 
+    id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
@@ -11,8 +11,15 @@ module.exports = (sequelize, DataTypes) => {
     status: DataTypes.BOOLEAN,
     projectManagerId: DataTypes.INTEGER
   }, {});
-  Project.associate = function(models) {
-    Project.belongsToMany(models.User, { as: "users", through: "user_projects", foreignKey: "projectId", otherKey: "userId", });
+  Project.associate = function (models) {
+    Project.belongsToMany(models.User, {
+      as: "users",
+      through: "user_projects",
+      foreignKey: "projectId",
+      otherKey: "userId",
+      foreignKeyConstraint: true,
+      onDelete: 'cascade'
+    });
   };
   return Project;
 };

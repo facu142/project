@@ -80,6 +80,7 @@ const deleteProject = async (req, res) => {
     };
 
     try {
+        await db.user_project.destroy({ where: { projectId: id } });
         const deletedProject = await project.destroy();
         return res.status(200).json({
             meta: {

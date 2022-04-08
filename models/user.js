@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    id:{ 
+    id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
@@ -11,8 +11,15 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     email: DataTypes.STRING
   }, {});
-  User.associate = function(models) {
-    User.belongsToMany(models.Project, { as: "projects", through: "user_projects", foreignKey: "userId", otherKey: "projectId" });
+  User.associate = function (models) {
+    User.belongsToMany(models.Project, {
+      as: "projects",
+      through: "user_projects",
+      foreignKey: "userId",
+      otherKey: "projectId",
+      foreignKeyConstraint: true,
+      onDelete: 'cascade'
+    });
   };
   return User;
 };

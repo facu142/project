@@ -14,14 +14,26 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   user_project.init({
-    id:{ 
+    id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    userId: DataTypes.INTEGER,
-    projectId: DataTypes.INTEGER
+    userId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'User',
+        key: 'id'
+      },
+    },
+    projectId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Project',
+        key: 'id'
+      },
+    },
   }, {
     sequelize,
     modelName: 'user_project',
