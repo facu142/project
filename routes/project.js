@@ -1,20 +1,40 @@
-var express = require('express');
+const express = require('express');
 const { createProject, updateProject, deleteProject, findProjectByName, findProjectById, getProjects } = require('../controllers/project');
-var router = express.Router();
+const { projectValidations } = require('../middlewares/project.validations');
+const { validateErrors } = require('../middlewares/validateErrors');
 
-// Create Proyect
-router.post('/', createProject);
+const router = express.Router();
 
-// Edit Proyect
-router.post('/:id', updateProject);
+// Create Project
+router.post(
+    '/',
+    projectValidations,
+    validateErrors,
+    createProject
+);
 
-// Delete Proyect
-router.delete('/:id', deleteProject)
+// Edit Project
+router.post('/:id',
+    projectValidations,
+    validateErrors,
+    updateProject
+);
 
-// get project by id
-router.get('/:id', findProjectById);
+// Delete Project
+router.delete(
+    '/:id',
+    deleteProject
+);
+
+// Get project details by id
+router.get(
+    '/:id',
+    findProjectById
+);
 
 // get projects
-router.get('/', getProjects);
+router.get('/',
+    getProjects
+);
 
 module.exports = router;

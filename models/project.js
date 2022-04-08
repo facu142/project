@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
-    status: DataTypes.BOOLEAN,
+    status:{ type: DataTypes.BOOLEAN, defaultValue: true},
     projectManagerId: DataTypes.INTEGER
   }, {});
   Project.associate = function (models) {
