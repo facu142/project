@@ -1,5 +1,5 @@
 var express = require('express');
-const { createProject, updateProject, deleteProject, findProjectByName } = require('../controllers/project');
+const { createProject, updateProject, deleteProject, findProjectByName, findProjectById } = require('../controllers/project');
 var router = express.Router();
 
 // Create Proyect
@@ -12,9 +12,7 @@ router.post('/:id', updateProject);
 router.delete('/:id', deleteProject)
 
 // get project by id
-router.get('/:id', function(req, res) {
-  res.send('get');
-});
+router.get('/:id', findProjectById);
 
 // find project by name
 router.get('/', findProjectByName);

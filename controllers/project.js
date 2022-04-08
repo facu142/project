@@ -3,12 +3,14 @@ const db = require('../models');
 
 const createProject = async (req, res) => {
 
-    const { name, description, status, } = req.body;
+    const { name, description, status, users } = req.body;
 
     try {
         const project = await db.Project.create({
             name, description, status
         });
+
+        project.setUsers(users);
 
         res.status(200).json({
             meta: {
@@ -111,7 +113,11 @@ const findProjectByName = async (req, res) => {
             where: {
                 name: sequelize.where(sequelize.fn('LOWER', sequelize.col('name')), 'LIKE', '%' + lookupValue + '%'),
             },
-            include: 'users'
+            include: {
+                model: db.User,
+                as: 'users',
+                attributes: { exclude: ['password'] },
+            }
         });
 
         return res.status(200).json({
@@ -124,7 +130,6 @@ const findProjectByName = async (req, res) => {
             },
         })
     } catch (err) {
-        console.log(err);
         return res.status(500).send({
             meta: {
                 status: 500,
@@ -135,9 +140,37 @@ const findProjectByName = async (req, res) => {
 
 };
 
+const findProjectById = async (req, res) => {
+    const { id } = req.params;
+
+    const project = await db.Project.findByPk(id, {
+        include: {
+            model: db.User,
+            as: 'users',
+            attributes: { exclude: ['password'] },
+        }
+    });
+    if (!project) {
+        return res.status(404).json({
+            msg: 'Project not found'
+        });
+    };
+
+    return res.json({
+        meta: {
+            status: 200,
+            errors: null,
+        },
+        data: {
+            project
+        },
+    })
+}
+
 module.exports = {
     createProject,
     updateProject,
     deleteProject,
-    findProjectByName
+    findProjectByName,
+    findProjectById
 };

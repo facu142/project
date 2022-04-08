@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING
   }, {});
   User.associate = function(models) {
-    User.belongsToMany(models.Project, { as: "projects", through: "user_projects", foreignKey: "userId" });
+    User.belongsToMany(models.Project, { as: "projects", through: "user_projects", foreignKey: "userId", otherKey: "projectId" });
   };
   return User;
 };
