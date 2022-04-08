@@ -7,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     name: DataTypes.STRING,
-    userId: DataTypes.INTEGER,
     description: DataTypes.TEXT,
     status: DataTypes.BOOLEAN,
     projectManagerId: DataTypes.INTEGER

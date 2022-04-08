@@ -25,15 +25,6 @@ module.exports = {
           as: 'projectManagerId',
         }
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Users',
-          key: 'id',
-          as: 'userId',
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
