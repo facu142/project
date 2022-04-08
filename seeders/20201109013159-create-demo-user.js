@@ -1,26 +1,15 @@
-'use strict';
-
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Users', [{
-      firstName: 'Usuario',
-      lastName: 'Demo',
-      email: 'test@test.com',
-      // Important: Password not encrypted yet! 
-      password: '1234',
-      roleId: 1,
-      image: 'https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png',
-      createdAt: new Date,
-      updatedAt: new Date
-    }], {});
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.bulkInsert('Users', [{
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'demo@demo.com',
+        password: '$321!pass!123$',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }], {});
   },
-
-  down: async (queryInterface, Sequelize) => {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+down: (queryInterface, Sequelize) => {
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };
