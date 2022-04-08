@@ -1,5 +1,6 @@
-const sequelize = require('sequelize');
 const db = require('../models');
+const { findProjectsByName, getProjectsPaginated } = require('../services/project.service');
+const { LIMIT_PAGE } = require('../constants/limit-page.contants')
 
 const createProject = async (req, res) => {
 
@@ -104,32 +105,38 @@ const deleteProject = async (req, res) => {
 
 };
 
-const findProjectByName = async (req, res) => {
+const getProjects = async (req, res) => {
     const { name } = req.query;
-    const lookupValue = name.toLowerCase();
-
+    let projects = [];
+    const { page = 1 } = req.query;
     try {
+        if (name) {
+            projects = await findProjectsByName(name);
+            return res.status(200).json({
+                meta: {
+                    status: 200,
+                    errors: null,
+                },
+                data: {
+                    projects
+                },
+            })
+        } else {
+            const { results, next, prev } = await getProjectsPaginated(db.Project, LIMIT_PAGE, page, req);
 
-        const projects = await db.Project.findAll({
-            where: {
-                name: sequelize.where(sequelize.fn('LOWER', sequelize.col('name')), 'LIKE', '%' + lookupValue + '%'),
-            },
-            include: {
-                model: db.User,
-                as: 'users',
-                attributes: { exclude: ['password'] },
+            if (results.length === 0) {
+                return res.status(404).json({
+                    msg: 'No projects found'
+                });
             }
-        });
+            return res.status(200).json({
+                prev,
+                next,
+                results,
+            });
+        }
 
-        return res.status(200).json({
-            meta: {
-                status: 200,
-                errors: null,
-            },
-            data: {
-                projects
-            },
-        })
+
     } catch (err) {
         return res.status(500).send({
             meta: {
@@ -138,7 +145,6 @@ const findProjectByName = async (req, res) => {
             },
         })
     }
-
 };
 
 const findProjectById = async (req, res) => {
@@ -172,6 +178,6 @@ module.exports = {
     createProject,
     updateProject,
     deleteProject,
-    findProjectByName,
-    findProjectById
+    findProjectById,
+    getProjects
 };
