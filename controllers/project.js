@@ -1,12 +1,13 @@
 const sequelize = require('sequelize');
 const db = require('../models');
+
 const createProject = async (req, res) => {
 
-    const { name, description, status, projectManagerId } = req.body;
+    const { name, description, status, } = req.body;
 
     try {
         const project = await db.Project.create({
-            name, description, status, projectManagerId
+            name, description, status
         });
 
         res.status(200).json({
@@ -109,7 +110,8 @@ const findProjectByName = async (req, res) => {
         const projects = await db.Project.findAll({
             where: {
                 name: sequelize.where(sequelize.fn('LOWER', sequelize.col('name')), 'LIKE', '%' + lookupValue + '%'),
-            }
+            },
+            include: 'users'
         });
 
         return res.status(200).json({
