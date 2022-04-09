@@ -10,7 +10,7 @@ const createProject = async (req, res) => {
         const project = await db.Project.create({
             name, description, status
         });
-
+        
         project.setUsers(users);
 
         res.status(200).json({
@@ -149,7 +149,7 @@ const getProjects = async (req, res) => {
 
 const findProjectById = async (req, res) => {
     const { id } = req.params;
-
+    console.log(req);
     const project = await db.Project.findByPk(id, {
         include: {
             model: db.User,

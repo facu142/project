@@ -39,7 +39,7 @@ const loginUser = async (req, res) => {
         const user = await findUserByEmail(email)
 
         const validPass = bcrypt.compareSync(password, user.password);
-        console.log(validPass);
+
         if (!user || !validPass) {
             return res.status(400).json({
                 msg: 'Wrong Email or password',

@@ -1,4 +1,5 @@
-const bcryptjs = require('bcryptjs')
+const bcryptjs = require('bcryptjs');
+const { USER_ROLE } = require('../constants/user.constants');
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     id: {
@@ -11,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     lastName: DataTypes.STRING,
     password: DataTypes.STRING,
     email: DataTypes.STRING,
+    roleId: {
+      type: DataTypes.INTEGER,
+      defaultValue: USER_ROLE
+    }
   }, {
     hooks: {
       beforeCreate(user) {
