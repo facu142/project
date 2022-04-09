@@ -6,6 +6,12 @@ const logger = require('morgan');
 const cors = require('cors')
 require('dotenv').config()
 
+// Swagger 
+const { serve, setup } = require('swagger-ui-express');
+const { configSwagger } = require('./documentation/config.swagger');
+const swaggerJSDocs = require('swagger-jsdoc')(configSwagger);  // eslint-disable-line
+
+// Routers
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
@@ -24,10 +30,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/projects', projectRouter);
+app.use('/api/docs', serve, setup(swaggerJSDocs));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,1677 @@
+openapi: 3.0.0
+info:
+  title: Proyect
+  contact: {}
+  version: '1.0'
+servers:
+  - url: http://example.com
+    variables: {}
+paths:
+  /projects:
+    post:
+      security:
+      - bearer: []
+      tags:
+        - Projects
+      summary: CREATE project
+      operationId: CREATEproject
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CREATEprojectRequest'
+            example:
+              name: nombre
+              description: algo 123
+              status: true
+              users:
+                - 2
+                - 1
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/m200'
+              example:
+                meta:
+                  status: 200
+                  errors: null
+                data:
+                  dataValues:
+                    id: 25
+                    name: nombre
+                    description: algo 123
+                    status: true
+                    updatedAt: '2022-04-09T01:49:49.764Z'
+                    createdAt: '2022-04-09T01:49:49.764Z'
+                  _previousDataValues:
+                    name: nombre
+                    description: algo 123
+                    status: true
+                    id: 25
+                    createdAt: '2022-04-09T01:49:49.764Z'
+                    updatedAt: '2022-04-09T01:49:49.764Z'
+                  uniqno: 1
+                  _changed: {}
+                  _options:
+                    isNewRecord: true
+                    _schema: null
+                    _schemaDelimiter: ''
+                  isNewRecord: false
+                msg: Project created successfuly
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/422Inputrequired1'
+              example:
+                errors:
+                  - msg: Input required
+                    param: description
+                    location: body
+        '500':
+          description: Internal Server Error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/500ServerError1'
+              example:
+                meta:
+                  status: 500
+                  errors: {}
+      deprecated: false
+    get:
+      security:
+      - bearer: []
+      tags:
+        - Projects
+      summary: GET projects by name or page
+      operationId: GETprojectsbynameorpage
+      parameters:
+        - name: name
+          in: query
+          description: 'The name of the projects to get'
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: proj
+
+        - name: page
+          in: query
+          description: 'The number of page'
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/200Namequery'
+              example:
+                meta:
+                  status: 200
+                  errors: null
+                data:
+                  projects:
+                    - id: 2
+                      name: Project 2
+                      description: Project 2 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:07:18.000Z'
+                      updatedAt: '2022-04-08T20:07:18.000Z'
+                      users:
+                        - id: 1
+                          firstName: admin1
+                          lastName: uno
+                          email: demo@demo.com
+                          createdAt: '2022-04-08T20:07:18.000Z'
+                          updatedAt: '2022-04-08T20:07:18.000Z'
+                          user_projects:
+                            createdAt: '2022-04-08T20:07:18.000Z'
+                            updatedAt: '2022-04-08T20:07:18.000Z'
+                            projectId: 2
+                            userId: 1
+                        - id: 2
+                          firstName: admin2
+                          lastName: dos
+                          email: admin2@demo.com
+                          createdAt: '2022-04-08T20:07:18.000Z'
+                          updatedAt: '2022-04-08T20:07:18.000Z'
+                          user_projects:
+                            createdAt: '2022-04-08T20:07:18.000Z'
+                            updatedAt: '2022-04-08T20:07:18.000Z'
+                            projectId: 2
+                            userId: 2
+                    - id: 3
+                      name: Project 3
+                      description: Project 3 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:07:18.000Z'
+                      updatedAt: '2022-04-08T20:07:18.000Z'
+                      users: []
+                    - id: 4
+                      name: Project 1
+                      description: Project 1 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:11:37.000Z'
+                      updatedAt: '2022-04-08T20:11:37.000Z'
+                      users: []
+                    - id: 5
+                      name: Project 2
+                      description: Project 2 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:11:37.000Z'
+                      updatedAt: '2022-04-08T20:11:37.000Z'
+                      users: []
+                    - id: 6
+                      name: Project 3
+                      description: Project 3 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:11:37.000Z'
+                      updatedAt: '2022-04-08T20:11:37.000Z'
+                      users: []
+                    - id: 7
+                      name: Project 4
+                      description: Project 4 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:11:37.000Z'
+                      updatedAt: '2022-04-08T20:11:37.000Z'
+                      users: []
+                    - id: 8
+                      name: Project 5
+                      description: Project 5 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:11:37.000Z'
+                      updatedAt: '2022-04-08T20:11:37.000Z'
+                      users: []
+                    - id: 9
+                      name: Project 6
+                      description: Project 6 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:11:37.000Z'
+                      updatedAt: '2022-04-08T20:11:37.000Z'
+                      users: []
+                    - id: 10
+                      name: Project 7
+                      description: Project 7 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:11:37.000Z'
+                      updatedAt: '2022-04-08T20:11:37.000Z'
+                      users: []
+                    - id: 11
+                      name: Project 8
+                      description: Project 8 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:11:37.000Z'
+                      updatedAt: '2022-04-08T20:11:37.000Z'
+                      users: []
+                    - id: 12
+                      name: Project 9
+                      description: Project 9 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:11:37.000Z'
+                      updatedAt: '2022-04-08T20:11:37.000Z'
+                      users: []
+                    - id: 13
+                      name: Project 10
+                      description: Project 10 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:11:37.000Z'
+                      updatedAt: '2022-04-08T20:11:37.000Z'
+                      users: []
+                    - id: 14
+                      name: Project 11
+                      description: Project 11 description
+                      status: true
+                      projectManagerId: 1
+                      createdAt: '2022-04-08T20:11:37.000Z'
+                      updatedAt: '2022-04-08T20:11:37.000Z'
+                      users: []
+        '500':
+          description: Internal Server Error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/500ServerError1'
+              example:
+                meta:
+                  status: 500
+                  errors: {}
+      deprecated: false
+  /projects/{id}:
+    post:
+      security:
+      - bearer: []
+      tags:
+        - Projects
+      summary: EDIT project
+      operationId: EDITproject
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+            example: 1
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EDITprojectRequest'
+            example:
+              description: New description
+              status: true
+              users:
+                - 1
+              projectManagerId: 2
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/m2001'
+              example:
+                meta:
+                  status: 200
+                  errors: null
+                data:
+                  dataValues:
+                    id: 1
+                    name: new Name
+                    description: New description
+                    status: true
+                    projectManagerId: 2
+                    createdAt: '2022-04-08T20:07:18.000Z'
+                    updatedAt: '2022-04-09T01:53:33.489Z'
+                  _previousDataValues:
+                    id: 1
+                    name: new Name
+                    description: New description
+                    status: true
+                    projectManagerId: 2
+                    createdAt: '2022-04-08T20:07:18.000Z'
+                    updatedAt: '2022-04-09T01:53:33.489Z'
+                  uniqno: 1
+                  _changed: {}
+                  _options:
+                    isNewRecord: false
+                    _schema: null
+                    _schemaDelimiter: ''
+                    raw: true
+                    attributes:
+                      - id
+                      - name
+                      - description
+                      - status
+                      - projectManagerId
+                      - createdAt
+                      - updatedAt
+                  isNewRecord: false
+                msg: Project Updated successfuly
+        '404':
+          description: Not Found
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/404Notfound1'
+              example:
+                msg: Project not found
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/422Inputrequired1'
+              example:
+                errors:
+                  - msg: Input required
+                    param: name
+                    location: body
+        '500':
+          description: Internal Server Error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/500ServerError1'
+              example:
+                meta:
+                  status: 500
+                  errors: {}
+      deprecated: false
+    delete:
+      security:
+      - bearer: []
+      tags:
+        - Projects
+      summary: DELETE Project
+      operationId: DELETEProject
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+            example: 3
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/m2001'
+              example:
+                meta:
+                  status: 200
+                  errors: null
+                data:
+                  dataValues:
+                    id: 3
+                    name: Project 3
+                    description: Project 3 description
+                    status: true
+                    projectManagerId: 1
+                    createdAt: '2022-04-08T20:07:18.000Z'
+                    updatedAt: '2022-04-08T20:07:18.000Z'
+                  _previousDataValues:
+                    id: 3
+                    name: Project 3
+                    description: Project 3 description
+                    status: true
+                    projectManagerId: 1
+                    createdAt: '2022-04-08T20:07:18.000Z'
+                    updatedAt: '2022-04-08T20:07:18.000Z'
+                  uniqno: 1
+                  _changed: {}
+                  _options:
+                    isNewRecord: false
+                    _schema: null
+                    _schemaDelimiter: ''
+                    raw: true
+                    attributes:
+                      - id
+                      - name
+                      - description
+                      - status
+                      - projectManagerId
+                      - createdAt
+                      - updatedAt
+                  isNewRecord: false
+                msg: Project deleted successfuly
+        '404':
+          description: Not Found
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/404Notfound1'
+              example:
+                msg: Project not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/500ServerError1'
+              example:
+                meta:
+                  status: 500
+                  errors: {}
+      deprecated: false
+    get:
+      security:
+      - bearer: []
+      tags:
+        - Projects
+      summary: GET project by id
+      operationId: GETprojectbyid
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+            example: 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/m2003'
+              example:
+                meta:
+                  status: 200
+                  errors: null
+                data:
+                  project:
+                    id: 1
+                    name: new Name
+                    description: New description
+                    status: true
+                    projectManagerId: 2
+                    createdAt: '2022-04-08T20:07:18.000Z'
+                    updatedAt: '2022-04-09T01:53:33.000Z'
+                    users:
+                      - id: 1
+                        firstName: admin1
+                        lastName: uno
+                        email: demo@demo.com
+                        createdAt: '2022-04-08T20:07:18.000Z'
+                        updatedAt: '2022-04-08T20:07:18.000Z'
+                        user_projects:
+                          createdAt: '2022-04-08T20:07:18.000Z'
+                          updatedAt: '2022-04-08T20:07:18.000Z'
+                          projectId: 1
+                          userId: 1
+                      - id: 2
+                        firstName: admin2
+                        lastName: dos
+                        email: admin2@demo.com
+                        createdAt: '2022-04-08T20:07:18.000Z'
+                        updatedAt: '2022-04-08T20:07:18.000Z'
+                        user_projects:
+                          createdAt: '2022-04-08T20:07:18.000Z'
+                          updatedAt: '2022-04-08T20:07:18.000Z'
+                          projectId: 1
+                          userId: 2
+        '404':
+          description: Not Found
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/404Notfound1'
+              example:
+                msg: Project not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/500ServerError1'
+              example:
+                meta:
+                  status: 500
+                  errors: {}
+      deprecated: false
+components:
+  schemas:
+    CREATEprojectRequest:
+      title: CREATEprojectRequest
+      required:
+        - name
+        - description
+        - status
+        - users
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: boolean
+        users:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: ''
+      example:
+        name: nombre
+        description: algo 123
+        status: true
+        users:
+          - 2
+          - 1
+    m200:
+      title: m200
+      required:
+        - meta
+        - data
+        - msg
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          $ref: '#/components/schemas/Data'
+        msg:
+          type: string
+      example:
+        meta:
+          status: 200
+          errors: null
+        data:
+          dataValues:
+            id: 25
+            name: nombre
+            description: algo 123
+            status: true
+            updatedAt: '2022-04-09T01:49:49.764Z'
+            createdAt: '2022-04-09T01:49:49.764Z'
+          _previousDataValues:
+            name: nombre
+            description: algo 123
+            status: true
+            id: 25
+            createdAt: '2022-04-09T01:49:49.764Z'
+            updatedAt: '2022-04-09T01:49:49.764Z'
+          uniqno: 1
+          _changed: {}
+          _options:
+            isNewRecord: true
+            _schema: null
+            _schemaDelimiter: ''
+          isNewRecord: false
+        msg: Project created successfuly
+    Meta:
+      title: Meta
+      required:
+        - status
+        - errors
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        errors:
+          type: string
+          nullable: true
+      example:
+        status: 200
+        errors: null
+    Data:
+      title: Data
+      required:
+        - dataValues
+        - _previousDataValues
+        - uniqno
+        - _changed
+        - _options
+        - isNewRecord
+      type: object
+      properties:
+        dataValues:
+          $ref: '#/components/schemas/DataValues'
+        _previousDataValues:
+          $ref: '#/components/schemas/PreviousDataValues'
+        uniqno:
+          type: integer
+          format: int32
+        _changed:
+          type: object
+        _options:
+          $ref: '#/components/schemas/Options'
+        isNewRecord:
+          type: boolean
+      example:
+        dataValues:
+          id: 25
+          name: nombre
+          description: algo 123
+          status: true
+          updatedAt: '2022-04-09T01:49:49.764Z'
+          createdAt: '2022-04-09T01:49:49.764Z'
+        _previousDataValues:
+          name: nombre
+          description: algo 123
+          status: true
+          id: 25
+          createdAt: '2022-04-09T01:49:49.764Z'
+          updatedAt: '2022-04-09T01:49:49.764Z'
+        uniqno: 1
+        _changed: {}
+        _options:
+          isNewRecord: true
+          _schema: null
+          _schemaDelimiter: ''
+        isNewRecord: false
+    DataValues:
+      title: DataValues
+      required:
+        - id
+        - name
+        - description
+        - status
+        - updatedAt
+        - createdAt
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: boolean
+        updatedAt:
+          type: string
+        createdAt:
+          type: string
+      example:
+        id: 25
+        name: nombre
+        description: algo 123
+        status: true
+        updatedAt: '2022-04-09T01:49:49.764Z'
+        createdAt: '2022-04-09T01:49:49.764Z'
+    PreviousDataValues:
+      title: PreviousDataValues
+      required:
+        - name
+        - description
+        - status
+        - id
+        - createdAt
+        - updatedAt
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: boolean
+        id:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        name: nombre
+        description: algo 123
+        status: true
+        id: 25
+        createdAt: '2022-04-09T01:49:49.764Z'
+        updatedAt: '2022-04-09T01:49:49.764Z'
+    Options:
+      title: Options
+      required:
+        - isNewRecord
+        - _schema
+        - _schemaDelimiter
+      type: object
+      properties:
+        isNewRecord:
+          type: boolean
+        _schema:
+          type: string
+          nullable: true
+        _schemaDelimiter:
+          type: string
+      example:
+        isNewRecord: true
+        _schema: null
+        _schemaDelimiter: ''
+    Error:
+      title: Error
+      required:
+        - msg
+        - param
+        - location
+      type: object
+      properties:
+        msg:
+          type: string
+        param:
+          type: string
+        location:
+          type: string
+      example:
+        msg: Input required
+        param: description
+        location: body
+    422Inputrequired1:
+      title: 422Inputrequired1
+      required:
+        - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+          description: ''
+      example:
+        errors:
+          - msg: Input required
+            param: description
+            location: body
+    Meta1:
+      title: Meta1
+      required:
+        - status
+        - errors
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        errors:
+          type: object
+      example:
+        status: 500
+        errors: {}
+    500ServerError1:
+      title: 500ServerError1
+      required:
+        - meta
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta1'
+      example:
+        meta:
+          status: 500
+          errors: {}
+    EDITprojectRequest:
+      title: EDITprojectRequest
+      required:
+        - description
+        - status
+        - users
+        - projectManagerId
+      type: object
+      properties:
+        description:
+          type: string
+        status:
+          type: boolean
+        users:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: ''
+        projectManagerId:
+          type: integer
+          format: int32
+      example:
+        description: New description
+        status: true
+        users:
+          - 1
+        projectManagerId: 2
+    m2001:
+      title: m2001
+      required:
+        - meta
+        - data
+        - msg
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          $ref: '#/components/schemas/Data1'
+        msg:
+          type: string
+      example:
+        meta:
+          status: 200
+          errors: null
+        data:
+          dataValues:
+            id: 1
+            name: new Name
+            description: New description
+            status: true
+            projectManagerId: 2
+            createdAt: '2022-04-08T20:07:18.000Z'
+            updatedAt: '2022-04-09T01:53:33.489Z'
+          _previousDataValues:
+            id: 1
+            name: new Name
+            description: New description
+            status: true
+            projectManagerId: 2
+            createdAt: '2022-04-08T20:07:18.000Z'
+            updatedAt: '2022-04-09T01:53:33.489Z'
+          uniqno: 1
+          _changed: {}
+          _options:
+            isNewRecord: false
+            _schema: null
+            _schemaDelimiter: ''
+            raw: true
+            attributes:
+              - id
+              - name
+              - description
+              - status
+              - projectManagerId
+              - createdAt
+              - updatedAt
+          isNewRecord: false
+        msg: Project Updated successfuly
+    Data1:
+      title: Data1
+      required:
+        - dataValues
+        - _previousDataValues
+        - uniqno
+        - _changed
+        - _options
+        - isNewRecord
+      type: object
+      properties:
+        dataValues:
+          $ref: '#/components/schemas/DataValues1'
+        _previousDataValues:
+          $ref: '#/components/schemas/PreviousDataValues1'
+        uniqno:
+          type: integer
+          format: int32
+        _changed:
+          type: object
+        _options:
+          $ref: '#/components/schemas/Options1'
+        isNewRecord:
+          type: boolean
+      example:
+        dataValues:
+          id: 1
+          name: new Name
+          description: New description
+          status: true
+          projectManagerId: 2
+          createdAt: '2022-04-08T20:07:18.000Z'
+          updatedAt: '2022-04-09T01:53:33.489Z'
+        _previousDataValues:
+          id: 1
+          name: new Name
+          description: New description
+          status: true
+          projectManagerId: 2
+          createdAt: '2022-04-08T20:07:18.000Z'
+          updatedAt: '2022-04-09T01:53:33.489Z'
+        uniqno: 1
+        _changed: {}
+        _options:
+          isNewRecord: false
+          _schema: null
+          _schemaDelimiter: ''
+          raw: true
+          attributes:
+            - id
+            - name
+            - description
+            - status
+            - projectManagerId
+            - createdAt
+            - updatedAt
+        isNewRecord: false
+    DataValues1:
+      title: DataValues1
+      required:
+        - id
+        - name
+        - description
+        - status
+        - projectManagerId
+        - createdAt
+        - updatedAt
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: boolean
+        projectManagerId:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        id: 1
+        name: new Name
+        description: New description
+        status: true
+        projectManagerId: 2
+        createdAt: '2022-04-08T20:07:18.000Z'
+        updatedAt: '2022-04-09T01:53:33.489Z'
+    PreviousDataValues1:
+      title: PreviousDataValues1
+      required:
+        - id
+        - name
+        - description
+        - status
+        - projectManagerId
+        - createdAt
+        - updatedAt
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: boolean
+        projectManagerId:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        id: 1
+        name: new Name
+        description: New description
+        status: true
+        projectManagerId: 2
+        createdAt: '2022-04-08T20:07:18.000Z'
+        updatedAt: '2022-04-09T01:53:33.489Z'
+    Options1:
+      title: Options1
+      required:
+        - isNewRecord
+        - _schema
+        - _schemaDelimiter
+        - raw
+        - attributes
+      type: object
+      properties:
+        isNewRecord:
+          type: boolean
+        _schema:
+          type: string
+          nullable: true
+        _schemaDelimiter:
+          type: string
+        raw:
+          type: boolean
+        attributes:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        isNewRecord: false
+        _schema: null
+        _schemaDelimiter: ''
+        raw: true
+        attributes:
+          - id
+          - name
+          - description
+          - status
+          - projectManagerId
+          - createdAt
+          - updatedAt
+    404Notfound1:
+      title: 404Notfound1
+      required:
+        - msg
+      type: object
+      properties:
+        msg:
+          type: string
+      example:
+        msg: Project not found
+    m2003:
+      title: m2003
+      required:
+        - meta
+        - data
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          $ref: '#/components/schemas/Data3'
+      example:
+        meta:
+          status: 200
+          errors: null
+        data:
+          project:
+            id: 1
+            name: new Name
+            description: New description
+            status: true
+            projectManagerId: 2
+            createdAt: '2022-04-08T20:07:18.000Z'
+            updatedAt: '2022-04-09T01:53:33.000Z'
+            users:
+              - id: 1
+                firstName: admin1
+                lastName: uno
+                email: demo@demo.com
+                createdAt: '2022-04-08T20:07:18.000Z'
+                updatedAt: '2022-04-08T20:07:18.000Z'
+                user_projects:
+                  createdAt: '2022-04-08T20:07:18.000Z'
+                  updatedAt: '2022-04-08T20:07:18.000Z'
+                  projectId: 1
+                  userId: 1
+              - id: 2
+                firstName: admin2
+                lastName: dos
+                email: admin2@demo.com
+                createdAt: '2022-04-08T20:07:18.000Z'
+                updatedAt: '2022-04-08T20:07:18.000Z'
+                user_projects:
+                  createdAt: '2022-04-08T20:07:18.000Z'
+                  updatedAt: '2022-04-08T20:07:18.000Z'
+                  projectId: 1
+                  userId: 2
+    Data3:
+      title: Data3
+      required:
+        - project
+      type: object
+      properties:
+        project:
+          $ref: '#/components/schemas/Project'
+      example:
+        project:
+          id: 1
+          name: new Name
+          description: New description
+          status: true
+          projectManagerId: 2
+          createdAt: '2022-04-08T20:07:18.000Z'
+          updatedAt: '2022-04-09T01:53:33.000Z'
+          users:
+            - id: 1
+              firstName: admin1
+              lastName: uno
+              email: demo@demo.com
+              createdAt: '2022-04-08T20:07:18.000Z'
+              updatedAt: '2022-04-08T20:07:18.000Z'
+              user_projects:
+                createdAt: '2022-04-08T20:07:18.000Z'
+                updatedAt: '2022-04-08T20:07:18.000Z'
+                projectId: 1
+                userId: 1
+            - id: 2
+              firstName: admin2
+              lastName: dos
+              email: admin2@demo.com
+              createdAt: '2022-04-08T20:07:18.000Z'
+              updatedAt: '2022-04-08T20:07:18.000Z'
+              user_projects:
+                createdAt: '2022-04-08T20:07:18.000Z'
+                updatedAt: '2022-04-08T20:07:18.000Z'
+                projectId: 1
+                userId: 2
+    Project:
+      title: Project
+      required:
+        - id
+        - name
+        - description
+        - status
+        - projectManagerId
+        - createdAt
+        - updatedAt
+        - users
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: boolean
+        projectManagerId:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+          description: ''
+      example:
+        id: 1
+        name: new Name
+        description: New description
+        status: true
+        projectManagerId: 2
+        createdAt: '2022-04-08T20:07:18.000Z'
+        updatedAt: '2022-04-09T01:53:33.000Z'
+        users:
+          - id: 1
+            firstName: admin1
+            lastName: uno
+            email: demo@demo.com
+            createdAt: '2022-04-08T20:07:18.000Z'
+            updatedAt: '2022-04-08T20:07:18.000Z'
+            user_projects:
+              createdAt: '2022-04-08T20:07:18.000Z'
+              updatedAt: '2022-04-08T20:07:18.000Z'
+              projectId: 1
+              userId: 1
+          - id: 2
+            firstName: admin2
+            lastName: dos
+            email: admin2@demo.com
+            createdAt: '2022-04-08T20:07:18.000Z'
+            updatedAt: '2022-04-08T20:07:18.000Z'
+            user_projects:
+              createdAt: '2022-04-08T20:07:18.000Z'
+              updatedAt: '2022-04-08T20:07:18.000Z'
+              projectId: 1
+              userId: 2
+    User:
+      title: User
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - createdAt
+        - updatedAt
+        - user_projects
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        user_projects:
+          $ref: '#/components/schemas/UserProjects'
+      example:
+        id: 1
+        firstName: admin1
+        lastName: uno
+        email: demo@demo.com
+        createdAt: '2022-04-08T20:07:18.000Z'
+        updatedAt: '2022-04-08T20:07:18.000Z'
+        user_projects:
+          createdAt: '2022-04-08T20:07:18.000Z'
+          updatedAt: '2022-04-08T20:07:18.000Z'
+          projectId: 1
+          userId: 1
+    UserProjects:
+      title: UserProjects
+      required:
+        - createdAt
+        - updatedAt
+        - projectId
+        - userId
+      type: object
+      properties:
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        projectId:
+          type: integer
+          format: int32
+        userId:
+          type: integer
+          format: int32
+      example:
+        createdAt: '2022-04-08T20:07:18.000Z'
+        updatedAt: '2022-04-08T20:07:18.000Z'
+        projectId: 1
+        userId: 1
+    200Namequery:
+      title: 200Namequery
+      required:
+        - meta
+        - data
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          $ref: '#/components/schemas/Data4'
+      example:
+        meta:
+          status: 200
+          errors: null
+        data:
+          projects:
+            - id: 2
+              name: Project 2
+              description: Project 2 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:07:18.000Z'
+              updatedAt: '2022-04-08T20:07:18.000Z'
+              users:
+                - id: 1
+                  firstName: admin1
+                  lastName: uno
+                  email: demo@demo.com
+                  createdAt: '2022-04-08T20:07:18.000Z'
+                  updatedAt: '2022-04-08T20:07:18.000Z'
+                  user_projects:
+                    createdAt: '2022-04-08T20:07:18.000Z'
+                    updatedAt: '2022-04-08T20:07:18.000Z'
+                    projectId: 2
+                    userId: 1
+                - id: 2
+                  firstName: admin2
+                  lastName: dos
+                  email: admin2@demo.com
+                  createdAt: '2022-04-08T20:07:18.000Z'
+                  updatedAt: '2022-04-08T20:07:18.000Z'
+                  user_projects:
+                    createdAt: '2022-04-08T20:07:18.000Z'
+                    updatedAt: '2022-04-08T20:07:18.000Z'
+                    projectId: 2
+                    userId: 2
+            - id: 3
+              name: Project 3
+              description: Project 3 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:07:18.000Z'
+              updatedAt: '2022-04-08T20:07:18.000Z'
+              users: []
+            - id: 4
+              name: Project 1
+              description: Project 1 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:11:37.000Z'
+              updatedAt: '2022-04-08T20:11:37.000Z'
+              users: []
+            - id: 5
+              name: Project 2
+              description: Project 2 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:11:37.000Z'
+              updatedAt: '2022-04-08T20:11:37.000Z'
+              users: []
+            - id: 6
+              name: Project 3
+              description: Project 3 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:11:37.000Z'
+              updatedAt: '2022-04-08T20:11:37.000Z'
+              users: []
+            - id: 7
+              name: Project 4
+              description: Project 4 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:11:37.000Z'
+              updatedAt: '2022-04-08T20:11:37.000Z'
+              users: []
+            - id: 8
+              name: Project 5
+              description: Project 5 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:11:37.000Z'
+              updatedAt: '2022-04-08T20:11:37.000Z'
+              users: []
+            - id: 9
+              name: Project 6
+              description: Project 6 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:11:37.000Z'
+              updatedAt: '2022-04-08T20:11:37.000Z'
+              users: []
+            - id: 10
+              name: Project 7
+              description: Project 7 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:11:37.000Z'
+              updatedAt: '2022-04-08T20:11:37.000Z'
+              users: []
+            - id: 11
+              name: Project 8
+              description: Project 8 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:11:37.000Z'
+              updatedAt: '2022-04-08T20:11:37.000Z'
+              users: []
+            - id: 12
+              name: Project 9
+              description: Project 9 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:11:37.000Z'
+              updatedAt: '2022-04-08T20:11:37.000Z'
+              users: []
+            - id: 13
+              name: Project 10
+              description: Project 10 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:11:37.000Z'
+              updatedAt: '2022-04-08T20:11:37.000Z'
+              users: []
+            - id: 14
+              name: Project 11
+              description: Project 11 description
+              status: true
+              projectManagerId: 1
+              createdAt: '2022-04-08T20:11:37.000Z'
+              updatedAt: '2022-04-08T20:11:37.000Z'
+              users: []
+    Data4:
+      title: Data4
+      required:
+        - projects
+      type: object
+      properties:
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project1'
+          description: ''
+      example:
+        projects:
+          - id: 2
+            name: Project 2
+            description: Project 2 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:07:18.000Z'
+            updatedAt: '2022-04-08T20:07:18.000Z'
+            users:
+              - id: 1
+                firstName: admin1
+                lastName: uno
+                email: demo@demo.com
+                createdAt: '2022-04-08T20:07:18.000Z'
+                updatedAt: '2022-04-08T20:07:18.000Z'
+                user_projects:
+                  createdAt: '2022-04-08T20:07:18.000Z'
+                  updatedAt: '2022-04-08T20:07:18.000Z'
+                  projectId: 2
+                  userId: 1
+              - id: 2
+                firstName: admin2
+                lastName: dos
+                email: admin2@demo.com
+                createdAt: '2022-04-08T20:07:18.000Z'
+                updatedAt: '2022-04-08T20:07:18.000Z'
+                user_projects:
+                  createdAt: '2022-04-08T20:07:18.000Z'
+                  updatedAt: '2022-04-08T20:07:18.000Z'
+                  projectId: 2
+                  userId: 2
+          - id: 3
+            name: Project 3
+            description: Project 3 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:07:18.000Z'
+            updatedAt: '2022-04-08T20:07:18.000Z'
+            users: []
+          - id: 4
+            name: Project 1
+            description: Project 1 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:11:37.000Z'
+            updatedAt: '2022-04-08T20:11:37.000Z'
+            users: []
+          - id: 5
+            name: Project 2
+            description: Project 2 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:11:37.000Z'
+            updatedAt: '2022-04-08T20:11:37.000Z'
+            users: []
+          - id: 6
+            name: Project 3
+            description: Project 3 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:11:37.000Z'
+            updatedAt: '2022-04-08T20:11:37.000Z'
+            users: []
+          - id: 7
+            name: Project 4
+            description: Project 4 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:11:37.000Z'
+            updatedAt: '2022-04-08T20:11:37.000Z'
+            users: []
+          - id: 8
+            name: Project 5
+            description: Project 5 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:11:37.000Z'
+            updatedAt: '2022-04-08T20:11:37.000Z'
+            users: []
+          - id: 9
+            name: Project 6
+            description: Project 6 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:11:37.000Z'
+            updatedAt: '2022-04-08T20:11:37.000Z'
+            users: []
+          - id: 10
+            name: Project 7
+            description: Project 7 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:11:37.000Z'
+            updatedAt: '2022-04-08T20:11:37.000Z'
+            users: []
+          - id: 11
+            name: Project 8
+            description: Project 8 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:11:37.000Z'
+            updatedAt: '2022-04-08T20:11:37.000Z'
+            users: []
+          - id: 12
+            name: Project 9
+            description: Project 9 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:11:37.000Z'
+            updatedAt: '2022-04-08T20:11:37.000Z'
+            users: []
+          - id: 13
+            name: Project 10
+            description: Project 10 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:11:37.000Z'
+            updatedAt: '2022-04-08T20:11:37.000Z'
+            users: []
+          - id: 14
+            name: Project 11
+            description: Project 11 description
+            status: true
+            projectManagerId: 1
+            createdAt: '2022-04-08T20:11:37.000Z'
+            updatedAt: '2022-04-08T20:11:37.000Z'
+            users: []
+    Project1:
+      title: Project1
+      required:
+        - id
+        - name
+        - description
+        - status
+        - projectManagerId
+        - createdAt
+        - updatedAt
+        - users
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: boolean
+        projectManagerId:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        users:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/User1'
+              - type: string
+          description: ''
+          example:
+            - id: 1
+              firstName: admin1
+              lastName: uno
+              email: demo@demo.com
+              createdAt: '2022-04-08T20:07:18.000Z'
+              updatedAt: '2022-04-08T20:07:18.000Z'
+              user_projects:
+                createdAt: '2022-04-08T20:07:18.000Z'
+                updatedAt: '2022-04-08T20:07:18.000Z'
+                projectId: 2
+                userId: 1
+      example:
+        id: 2
+        name: Project 2
+        description: Project 2 description
+        status: true
+        projectManagerId: 1
+        createdAt: '2022-04-08T20:07:18.000Z'
+        updatedAt: '2022-04-08T20:07:18.000Z'
+        users:
+          - id: 1
+            firstName: admin1
+            lastName: uno
+            email: demo@demo.com
+            createdAt: '2022-04-08T20:07:18.000Z'
+            updatedAt: '2022-04-08T20:07:18.000Z'
+            user_projects:
+              createdAt: '2022-04-08T20:07:18.000Z'
+              updatedAt: '2022-04-08T20:07:18.000Z'
+              projectId: 2
+              userId: 1
+          - id: 2
+            firstName: admin2
+            lastName: dos
+            email: admin2@demo.com
+            createdAt: '2022-04-08T20:07:18.000Z'
+            updatedAt: '2022-04-08T20:07:18.000Z'
+            user_projects:
+              createdAt: '2022-04-08T20:07:18.000Z'
+              updatedAt: '2022-04-08T20:07:18.000Z'
+              projectId: 2
+              userId: 2
+    User1:
+      title: User1
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        user_projects:
+          $ref: '#/components/schemas/UserProjects'
+      example:
+        id: 1
+        firstName: admin1
+        lastName: uno
+        email: demo@demo.com
+        createdAt: '2022-04-08T20:07:18.000Z'
+        updatedAt: '2022-04-08T20:07:18.000Z'
+        user_projects:
+          createdAt: '2022-04-08T20:07:18.000Z'
+          updatedAt: '2022-04-08T20:07:18.000Z'
+          projectId: 2
+          userId: 1
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security:
+  - bearer: []
+tags:
+  - name: Projects
+    description: ''

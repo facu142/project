@@ -138,7 +138,7 @@ const getProjects = async (req, res) => {
 
 
     } catch (err) {
-        return res.status(500).send({
+        return res.status(500).json({
             meta: {
                 status: 500,
                 errors: err
