@@ -31,56 +31,6 @@ paths:
       responses:
         '200':
           description: OK
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '517'
-                  example: '517'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"205-FmXWzkEztYkw+mZCLGXxLFOgtl4"
-                  example: W/"205-FmXWzkEztYkw+mZCLGXxLFOgtl4"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:49:49 GMT
-                  example: Sat, 09 Apr 2022 01:49:49 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -114,56 +64,6 @@ paths:
                 msg: Project created successfuly
         '401':
           description: Unauthorized
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '99'
-                  example: '99'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"63-bW21xeFuOlW1sz6BLIPj/BfTLHA"
-                  example: W/"63-bW21xeFuOlW1sz6BLIPj/BfTLHA"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 17:02:02 GMT
-                  example: Sat, 09 Apr 2022 17:02:02 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -175,57 +75,7 @@ paths:
                 errors:
                   msg: You do not have permissions for this resource
         '403':
-          description: Forbidden
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '50'
-                  example: '50'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"32-zKXBNALrhPJLhGrNy32aZ4MX1MI"
-                  example: W/"32-zKXBNALrhPJLhGrNy32aZ4MX1MI"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 17:13:04 GMT
-                  example: Sat, 09 Apr 2022 17:13:04 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
+          description: Forbidden  
           content:
             application/json; charset=utf-8:
               schema:
@@ -234,56 +84,6 @@ paths:
                 error: A token is required for authentication
         '422':
           description: Unprocessable Entity
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '77'
-                  example: '77'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"4d-BZvTAKjzk6pgSnqRQTMV57Spihc"
-                  example: W/"4d-BZvTAKjzk6pgSnqRQTMV57Spihc"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:50:23 GMT
-                  example: Sat, 09 Apr 2022 01:50:23 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -295,56 +95,6 @@ paths:
                     location: body
         '500':
           description: Internal Server Error
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '35'
-                  example: '35'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"23-PmmVM4t6OFE2CKfH8e8hjD7fvBc"
-                  example: W/"23-PmmVM4t6OFE2CKfH8e8hjD7fvBc"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:00:23 GMT
-                  example: Sat, 09 Apr 2022 01:00:23 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -374,57 +124,7 @@ paths:
             example: 1
       responses:
         '200':
-          description: OK
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '1853'
-                  example: '1853'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"73d-lQpxxtBMXEostdTeiL7Q4+CPTJc"
-                  example: W/"73d-lQpxxtBMXEostdTeiL7Q4+CPTJc"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 02:35:12 GMT
-                  example: Sat, 09 Apr 2022 02:35:12 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
+          description: OK 
           content:
             application/json; charset=utf-8:
               schema:
@@ -505,56 +205,6 @@ paths:
                     updatedAt: '2022-04-08T20:11:37.000Z'
         '403':
           description: Forbidden
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '50'
-                  example: '50'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"32-zKXBNALrhPJLhGrNy32aZ4MX1MI"
-                  example: W/"32-zKXBNALrhPJLhGrNy32aZ4MX1MI"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 17:17:34 GMT
-                  example: Sat, 09 Apr 2022 17:17:34 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -563,56 +213,6 @@ paths:
                 error: A token is required for authentication
         '500':
           description: Internal Server Error
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '35'
-                  example: '35'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"23-PmmVM4t6OFE2CKfH8e8hjD7fvBc"
-                  example: W/"23-PmmVM4t6OFE2CKfH8e8hjD7fvBc"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:57:55 GMT
-                  example: Sat, 09 Apr 2022 01:57:55 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -656,56 +256,6 @@ paths:
       responses:
         '200':
           description: OK
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '680'
-                  example: '680'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"2a8-N2fkHOLYYnJrVVUhbaeRPpst6sk"
-                  example: W/"2a8-N2fkHOLYYnJrVVUhbaeRPpst6sk"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:53:33 GMT
-                  example: Sat, 09 Apr 2022 01:53:33 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -750,56 +300,6 @@ paths:
                 msg: Project Updated successfuly
         '401':
           description: Unauthorized
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '99'
-                  example: '99'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"63-bW21xeFuOlW1sz6BLIPj/BfTLHA"
-                  example: W/"63-bW21xeFuOlW1sz6BLIPj/BfTLHA"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 17:14:56 GMT
-                  example: Sat, 09 Apr 2022 17:14:56 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -812,56 +312,6 @@ paths:
                   msg: You do not have permissions for this resource
         '403':
           description: Forbidden
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '50'
-                  example: '50'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"32-zKXBNALrhPJLhGrNy32aZ4MX1MI"
-                  example: W/"32-zKXBNALrhPJLhGrNy32aZ4MX1MI"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 17:03:12 GMT
-                  example: Sat, 09 Apr 2022 17:03:12 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -870,56 +320,6 @@ paths:
                 error: A token is required for authentication
         '404':
           description: Not Found
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '27'
-                  example: '27'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"1b-dQ7P8h9LzohIU2vF8kjmnmnpByg"
-                  example: W/"1b-dQ7P8h9LzohIU2vF8kjmnmnpByg"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:51:15 GMT
-                  example: Sat, 09 Apr 2022 01:51:15 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -928,56 +328,6 @@ paths:
                 msg: Project not found
         '422':
           description: Unprocessable Entity
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '70'
-                  example: '70'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"46-13HzOdfGBx9Pv5iW+jgv0pzqfvk"
-                  example: W/"46-13HzOdfGBx9Pv5iW+jgv0pzqfvk"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:55:49 GMT
-                  example: Sat, 09 Apr 2022 01:55:49 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -989,56 +339,6 @@ paths:
                     location: body
         '500':
           description: Internal Server Error
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '35'
-                  example: '35'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"23-PmmVM4t6OFE2CKfH8e8hjD7fvBc"
-                  example: W/"23-PmmVM4t6OFE2CKfH8e8hjD7fvBc"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:00:23 GMT
-                  example: Sat, 09 Apr 2022 01:00:23 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -1068,56 +368,6 @@ paths:
       responses:
         '200':
           description: OK
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '694'
-                  example: '694'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"2b6-e/HK2U7VnzuGmXNPaD6QZFYFcek"
-                  example: W/"2b6-e/HK2U7VnzuGmXNPaD6QZFYFcek"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:56:42 GMT
-                  example: Sat, 09 Apr 2022 01:56:42 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -1162,56 +412,6 @@ paths:
                 msg: Project deleted successfuly
         '401':
           description: Unauthorized
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '99'
-                  example: '99'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"63-bW21xeFuOlW1sz6BLIPj/BfTLHA"
-                  example: W/"63-bW21xeFuOlW1sz6BLIPj/BfTLHA"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 17:16:02 GMT
-                  example: Sat, 09 Apr 2022 17:16:02 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -1224,56 +424,6 @@ paths:
                   msg: You do not have permissions for this resource
         '403':
           description: Forbidden
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '50'
-                  example: '50'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"32-zKXBNALrhPJLhGrNy32aZ4MX1MI"
-                  example: W/"32-zKXBNALrhPJLhGrNy32aZ4MX1MI"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 17:15:39 GMT
-                  example: Sat, 09 Apr 2022 17:15:39 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -1282,56 +432,6 @@ paths:
                 error: A token is required for authentication
         '404':
           description: Not Found
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '27'
-                  example: '27'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"1b-dQ7P8h9LzohIU2vF8kjmnmnpByg"
-                  example: W/"1b-dQ7P8h9LzohIU2vF8kjmnmnpByg"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:46:47 GMT
-                  example: Sat, 09 Apr 2022 01:46:47 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -1340,56 +440,6 @@ paths:
                 msg: Project not found
         '500':
           description: Internal Server Error
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '35'
-                  example: '35'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"23-PmmVM4t6OFE2CKfH8e8hjD7fvBc"
-                  example: W/"23-PmmVM4t6OFE2CKfH8e8hjD7fvBc"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:00:23 GMT
-                  example: Sat, 09 Apr 2022 01:00:23 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -1419,56 +469,6 @@ paths:
       responses:
         '200':
           description: OK
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '780'
-                  example: '780'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"30c-48Q6X/i6s82Ru19SI3KYmwHgdgI"
-                  example: W/"30c-48Q6X/i6s82Ru19SI3KYmwHgdgI"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:57:17 GMT
-                  example: Sat, 09 Apr 2022 01:57:17 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -1511,56 +511,6 @@ paths:
                           userId: 2
         '403':
           description: Forbidden
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '50'
-                  example: '50'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"32-zKXBNALrhPJLhGrNy32aZ4MX1MI"
-                  example: W/"32-zKXBNALrhPJLhGrNy32aZ4MX1MI"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 17:18:12 GMT
-                  example: Sat, 09 Apr 2022 17:18:12 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -1569,56 +519,6 @@ paths:
                 error: A token is required for authentication
         '404':
           description: Not Found
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '27'
-                  example: '27'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"1b-dQ7P8h9LzohIU2vF8kjmnmnpByg"
-                  example: W/"1b-dQ7P8h9LzohIU2vF8kjmnmnpByg"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:47:52 GMT
-                  example: Sat, 09 Apr 2022 01:47:52 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
@@ -1627,56 +527,6 @@ paths:
                 msg: Project not found
         '500':
           description: Internal Server Error
-          headers:
-            X-Powered-By:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Express
-                  example: Express
-            Access-Control-Allow-Origin:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '*'
-                  example: '*'
-            Content-Length:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: '35'
-                  example: '35'
-            ETag:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: W/"23-PmmVM4t6OFE2CKfH8e8hjD7fvBc"
-                  example: W/"23-PmmVM4t6OFE2CKfH8e8hjD7fvBc"
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: Sat, 09 Apr 2022 01:00:23 GMT
-                  example: Sat, 09 Apr 2022 01:00:23 GMT
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: keep-alive
-                  example: keep-alive
-            Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                    example: timeout=5
-                  example: timeout=5
           content:
             application/json; charset=utf-8:
               schema:
