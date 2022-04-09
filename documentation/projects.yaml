@@ -251,6 +251,7 @@ paths:
             schema:
               $ref: '#/components/schemas/EDITprojectRequest'
             example:
+              name: new Name
               description: New description
               status: true
               users:
@@ -884,6 +885,7 @@ components:
           type: integer
           format: int32
       example:
+        name: new Name
         description: New description
         status: true
         users:
