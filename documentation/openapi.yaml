@@ -23,10 +23,14 @@ paths:
             schema:
               $ref: '#/components/schemas/CREATEprojectRequest'
             example:
-              name: nombre2
-              description: algo 123
+              name: projectName
+              description: description of the project
               status: true
-              users: hola
+              users:
+                - 1
+                - 2
+              projectManagerId:
+                1
         required: true
       responses:
         '200':
@@ -42,14 +46,14 @@ paths:
                 data:
                   dataValues:
                     id: 25
-                    name: nombre
-                    description: algo 123
+                    name: project name
+                    description: project description
                     status: true
                     updatedAt: '2022-04-09T01:49:49.764Z'
                     createdAt: '2022-04-09T01:49:49.764Z'
                   _previousDataValues:
-                    name: nombre
-                    description: algo 123
+                    name: project name
+                    description: project description
                     status: true
                     id: 25
                     createdAt: '2022-04-09T01:49:49.764Z'
@@ -556,8 +560,8 @@ components:
         users:
           type: string
       example:
-        name: nombre2
-        description: algo 123
+        name: project name
+        description: project description
         status: true
         users: hola
     m200:
@@ -581,14 +585,14 @@ components:
         data:
           dataValues:
             id: 25
-            name: nombre
-            description: algo 123
+            name: project name
+            description: project description
             status: true
             updatedAt: '2022-04-09T01:49:49.764Z'
             createdAt: '2022-04-09T01:49:49.764Z'
           _previousDataValues:
-            name: nombre
-            description: algo 123
+            name: project name
+            description: project description
             status: true
             id: 25
             createdAt: '2022-04-09T01:49:49.764Z'
@@ -644,14 +648,14 @@ components:
       example:
         dataValues:
           id: 25
-          name: nombre
-          description: algo 123
+          name: project name
+          description: project description
           status: true
           updatedAt: '2022-04-09T01:49:49.764Z'
           createdAt: '2022-04-09T01:49:49.764Z'
         _previousDataValues:
-          name: nombre
-          description: algo 123
+          name: project name
+          description: project description
           status: true
           id: 25
           createdAt: '2022-04-09T01:49:49.764Z'
@@ -689,8 +693,8 @@ components:
           type: string
       example:
         id: 25
-        name: nombre
-        description: algo 123
+        name: project name
+        description: project description
         status: true
         updatedAt: '2022-04-09T01:49:49.764Z'
         createdAt: '2022-04-09T01:49:49.764Z'
@@ -719,8 +723,8 @@ components:
         updatedAt:
           type: string
       example:
-        name: nombre
-        description: algo 123
+        name: project name
+        description: project description
         status: true
         id: 25
         createdAt: '2022-04-09T01:49:49.764Z'

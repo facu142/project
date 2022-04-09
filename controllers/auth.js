@@ -4,7 +4,7 @@ const { createJWT } = require('../helpers/createJWT');
 
 const registerUser = async (req, res) => {
 
-    const { email, password, } = req.body;
+    const { email, password, firstName, lastName } = req.body;
 
     try {
         const userDb = await findUserByEmail(email);
@@ -15,7 +15,7 @@ const registerUser = async (req, res) => {
             });
         }
 
-        const user = await createUser(email, password);
+        const user = await createUser(email, password, firstName, lastName);
 
         return res.json({
             msg: 'User created successfuly',

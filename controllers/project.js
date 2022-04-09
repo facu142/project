@@ -4,13 +4,13 @@ const { LIMIT_PAGE } = require('../constants/limit-page.contants')
 
 const createProject = async (req, res) => {
 
-    const { name, description, status, users } = req.body;
+    const { name, description, status, users, projectManagerId } = req.body;
 
     try {
         const project = await db.Project.create({
-            name, description, status
+            name, description, status, projectManagerId
         });
-        
+
         project.setUsers(users);
 
         res.status(200).json({

@@ -1,0 +1,586 @@
+openapi: 3.0.0
+info:
+  title: Auth
+  contact: {}
+  version: '1.0'
+servers:
+  - url: http://example.com/auth
+    variables: {}
+paths:
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Login User
+      operationId: LoginUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginUserRequest'
+            example:
+              email: admin1@test.com
+              password: admin1
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Express
+                  example: Express
+            Access-Control-Allow-Origin:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '*'
+                  example: '*'
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '234'
+                  example: '234'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: W/"ea-CCaay0slVICzHRUmBem14ET8tIg"
+                  example: W/"ea-CCaay0slVICzHRUmBem14ET8tIg"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Sat, 09 Apr 2022 21:58:12 GMT
+                  example: Sat, 09 Apr 2022 21:58:12 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: keep-alive
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: timeout=5
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/m200'
+              example:
+                msg: User logged in
+                token: >-
+                  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGVJZCI6MSwiZW1haWwiOiJhZG1pbjFAdGVzdC5jb20iLCJpZCI6MX0sImlhdCI6MTY0OTU0MTQ5MiwiZXhwIjoxNjQ5NTU1ODkyfQ.re9dl9a1pL2RRaoZY5Om6lCTJbYmUJwpoHMOgxhjlRo
+        '400':
+          description: Bad Request
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Express
+                  example: Express
+            Access-Control-Allow-Origin:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '*'
+                  example: '*'
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '33'
+                  example: '33'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: W/"21-hQbMtFSN9ORIF8+jEjDykojtOdY"
+                  example: W/"21-hQbMtFSN9ORIF8+jEjDykojtOdY"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Sat, 09 Apr 2022 21:58:40 GMT
+                  example: Sat, 09 Apr 2022 21:58:40 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: keep-alive
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: timeout=5
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/400Wrongpasswordoremail1'
+              example:
+                msg: Wrong Email or password
+        '422':
+          description: Unprocessable Entity
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Express
+                  example: Express
+            Access-Control-Allow-Origin:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '*'
+                  example: '*'
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '74'
+                  example: '74'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: W/"4a-ieHxwdAExPmpNrVbhVqn84Dv9PE"
+                  example: W/"4a-ieHxwdAExPmpNrVbhVqn84Dv9PE"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Sat, 09 Apr 2022 22:09:45 GMT
+                  example: Sat, 09 Apr 2022 22:09:45 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: keep-alive
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: timeout=5
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/422Inputrequired1'
+              example:
+                errors:
+                  - msg: Input required
+                    param: password
+                    location: body
+      deprecated: false
+  /auth/register:
+    post:
+      tags:
+        - Auth
+      summary: Register User
+      operationId: RegisterUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterUserRequest'
+            example:
+              email: user4@test.com
+              password: user4
+              firstName: firstName4
+              lastName: lastname4
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Express
+                  example: Express
+            Access-Control-Allow-Origin:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '*'
+                  example: '*'
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '286'
+                  example: '286'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: W/"11e-izXjIN1NxRbkklqEDgtAomUgvEs"
+                  example: W/"11e-izXjIN1NxRbkklqEDgtAomUgvEs"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Sat, 09 Apr 2022 22:07:19 GMT
+                  example: Sat, 09 Apr 2022 22:07:19 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: keep-alive
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: timeout=5
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/m2001'
+              example:
+                msg: User created successfuly
+                user:
+                  roleId: 2
+                  id: 8
+                  email: user4@test.com
+                  password: $2a$10$Dj7K58tHhblxiNI4bIsbRevLNB/ouqwOb2ok.yDH9if0VdlZBRJzK
+                  firstName: firstName4
+                  lastName: lastname4
+                  updatedAt: '2022-04-09T22:07:18.980Z'
+                  createdAt: '2022-04-09T22:07:18.980Z'
+        '400':
+          description: Bad Request
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Express
+                  example: Express
+            Access-Control-Allow-Origin:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '*'
+                  example: '*'
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '29'
+                  example: '29'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: W/"1d-k2WvE2E9eFimtwD39E5Nm1byN98"
+                  example: W/"1d-k2WvE2E9eFimtwD39E5Nm1byN98"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Sat, 09 Apr 2022 21:59:15 GMT
+                  example: Sat, 09 Apr 2022 21:59:15 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: keep-alive
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: timeout=5
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/400Useralreadyexists1'
+              example:
+                msg: User already exists
+        '422':
+          description: Unprocessable Entity
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Express
+                  example: Express
+            Access-Control-Allow-Origin:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '*'
+                  example: '*'
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: '70'
+                  example: '70'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: W/"46-13HzOdfGBx9Pv5iW+jgv0pzqfvk"
+                  example: W/"46-13HzOdfGBx9Pv5iW+jgv0pzqfvk"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: Sat, 09 Apr 2022 22:09:17 GMT
+                  example: Sat, 09 Apr 2022 22:09:17 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: keep-alive
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    example: timeout=5
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/422Inputrequired1'
+              example:
+                errors:
+                  - msg: Input required
+                    param: name
+                    location: body
+      deprecated: false
+components:
+  schemas:
+    LoginUserRequest:
+      title: LoginUserRequest
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: admin1@test.com
+        password: admin1
+    m200:
+      title: m200
+      required:
+        - msg
+        - token
+      type: object
+      properties:
+        msg:
+          type: string
+        token:
+          type: string
+      example:
+        msg: User logged in
+        token: >-
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGVJZCI6MSwiZW1haWwiOiJhZG1pbjFAdGVzdC5jb20iLCJpZCI6MX0sImlhdCI6MTY0OTU0MTQ5MiwiZXhwIjoxNjQ5NTU1ODkyfQ.re9dl9a1pL2RRaoZY5Om6lCTJbYmUJwpoHMOgxhjlRo
+    400Wrongpasswordoremail1:
+      title: 400Wrongpasswordoremail1
+      required:
+        - msg
+      type: object
+      properties:
+        msg:
+          type: string
+      example:
+        msg: Wrong Email or password
+    Error:
+      title: Error
+      required:
+        - msg
+        - param
+        - location
+      type: object
+      properties:
+        msg:
+          type: string
+        param:
+          type: string
+        location:
+          type: string
+      example:
+        msg: Input required
+        param: password
+        location: body
+    422Inputrequired1:
+      title: 422Inputrequired1
+      required:
+        - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+          description: ''
+      example:
+        errors:
+          - msg: Input required
+            param: password
+            location: body
+    RegisterUserRequest:
+      title: RegisterUserRequest
+      required:
+        - email
+        - password
+        - firstName
+        - lastName
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+      example:
+        email: user4@test.com
+        password: user4
+        firstName: firstName4
+        lastName: lastname4
+    m2001:
+      title: m2001
+      required:
+        - msg
+        - user
+      type: object
+      properties:
+        msg:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+      example:
+        msg: User created successfuly
+        user:
+          roleId: 2
+          id: 8
+          email: user4@test.com
+          password: $2a$10$Dj7K58tHhblxiNI4bIsbRevLNB/ouqwOb2ok.yDH9if0VdlZBRJzK
+          firstName: firstName4
+          lastName: lastname4
+          updatedAt: '2022-04-09T22:07:18.980Z'
+          createdAt: '2022-04-09T22:07:18.980Z'
+    User:
+      title: User
+      required:
+        - roleId
+        - id
+        - email
+        - password
+        - firstName
+        - lastName
+        - updatedAt
+        - createdAt
+      type: object
+      properties:
+        roleId:
+          type: integer
+          format: int32
+        id:
+          type: integer
+          format: int32
+        email:
+          type: string
+        password:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        updatedAt:
+          type: string
+        createdAt:
+          type: string
+      example:
+        roleId: 2
+        id: 8
+        email: user4@test.com
+        password: $2a$10$Dj7K58tHhblxiNI4bIsbRevLNB/ouqwOb2ok.yDH9if0VdlZBRJzK
+        firstName: firstName4
+        lastName: lastname4
+        updatedAt: '2022-04-09T22:07:18.980Z'
+        createdAt: '2022-04-09T22:07:18.980Z'
+    400Useralreadyexists1:
+      title: 400Useralreadyexists1
+      required:
+        - msg
+      type: object
+      properties:
+        msg:
+          type: string
+      example:
+        msg: User already exists
+tags:
+  - name: Auth
+    description: ''

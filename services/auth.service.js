@@ -4,10 +4,12 @@ const findUserByEmail = async (email) => {
     return db.User.findOne({ where: { email } });
 }
 
-const createUser = async (email, password) => {
+const createUser = async (email, password, firstName, lastName) => {
     return db.User.create({
         email,
-        password
+        password,
+        firstName,
+        lastName
     })
 }
 

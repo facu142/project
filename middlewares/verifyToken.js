@@ -16,7 +16,6 @@ const verifyToken = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, config.SECRETORPRIVATEKEY);
     req.user = decoded;
-    console.log('EN VERIFY TOKEN => ',req.body);
   } catch (err) {
     return res.status(401).json({ error: 'Invalid Token' });
   }
