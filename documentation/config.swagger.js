@@ -18,12 +18,12 @@ const configSwagger = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
-        description: 'Server Local',
-      },
-      {
         url: 'https://projects-app-challenge.herokuapp.com/',
         description: 'Heroku server',
+      },
+      {
+        url: 'http://localhost:3000',
+        description: 'Server Local',
       },
     ],
     externalDocs: {
