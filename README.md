@@ -1,6 +1,6 @@
 # API Proyectos
 
-1) Ingresar a https://projects-app-challenge.herokuapp.com/api/docs/#/Project
+1) Ingresar a https://projects-app-challenge.herokuapp.com/api/docs/#
 
 2) Iniciar sesion como usuario admin
 <img src="assets/1.png">
