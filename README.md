@@ -1,30 +1,14 @@
-# Server Base - Proyecto ONG
+# API Proyectos
 
+1) Ingresar a https://projects-app-challenge.herokuapp.com/api/docs/#/Project
 
-## Envinroment setup
+2) Iniciar sesion como usuario admin
+<img src="assets/1.png" width="400">
 
-1) Create database
-2) Copy .env.example to .env and fill with database credentials.
+3) Copiar Token
+<img src="assets/2.png" width="400">
 
-<img src="assets/imagen.png" width="400">
+4) Pegar Token y click en authorize
+<img src="assets/3.png" width="400">
 
-To install dependencies, run
-``` bash
-npm install
-```
-
-3) Migrations:
-``` bash
-npx sequelize-cli db:migrate
-```
-
-4) Seeders:
-``` bash
-npx sequelize-cli db:seed:all
-```
-
-## Start local server
-
-``` bash
-npm start
-```
+Ya  estas autorizado a hacer las peticiones de los endpoints de proyectos
