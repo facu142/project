@@ -6,6 +6,8 @@
 1) Create database
 2) Copy .env.example to .env and fill with database credentials.
 
+<img src="assets/imagen.png" width="400">
+
 To install dependencies, run
 ``` bash
 npm install
