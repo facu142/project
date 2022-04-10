@@ -10,5 +10,6 @@
 
 4) Pegar Token y click en authorize
 <img src="assets/3.png">
+<img src="assets/4.png">
 
 Ya  estas autorizado a hacer las peticiones de los endpoints de proyectos
